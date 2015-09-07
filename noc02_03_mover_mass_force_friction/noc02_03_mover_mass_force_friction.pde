@@ -10,13 +10,22 @@ void setup() {
 }
 
 void draw() {  
-  //background(255);
-  PVector wind = new PVector(0.01,0);
+  
+  PVector wind = new PVector(0.005,0);
   PVector gravity = new PVector(0,0.1);
   
   for(int i=0;i<movers.length;i++) {
+  
+    float c = 0.01;
+    PVector friction = movers[i].velocity.get();
+    friction.mult(-1);
+    friction.normalize();
+    friction.mult(c);
     
-    gravity.y = 0.1*movers[i].mass;
+    
+    movers[i].applyForce(friction);
+    
+    //gravity.y = 0.1*movers[i].mass;
     
     movers[i].applyForce(wind);
     movers[i].applyForce(gravity);
