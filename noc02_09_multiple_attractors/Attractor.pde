@@ -3,10 +3,10 @@ class Attractor {
   PVector location;
   float G;
   
-  Attractor() {
-    location = new PVector(width/2, height/2);
+  Attractor(float x, float y) {
+    location = new PVector(x, y);
     mass = 20;
-    G = 9;
+    G = 0.1;
   }
   
   void display() {
@@ -15,9 +15,7 @@ class Attractor {
     ellipse(location.x, location.y, mass, mass);
   }  
   
-  PVector attract(Mover m) {
-    location.x = mouseX;
-    location.y = mouseY;
+  PVector attract(Mover m) {   
     
     PVector force = PVector.sub(location, m.location);
     
