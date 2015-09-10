@@ -33,6 +33,6 @@ void draw() {
 
 void mouseReleased() {  
   movers.add(new Mover(1.0, 30, height-30));
-  PVector bang = new PVector(random(5.0,7.0),random(-6.0,-8.0));
+  PVector bang = new PVector(random(3.0,6.0),random(-6.0,-8.0));
   ((Mover)movers.get(movers.size()-1)).applyForce(bang);
 }
