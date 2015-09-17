@@ -54,6 +54,26 @@ class Vehicle {
     applyForce(steer);
   }
   
+  void arrive(PVector target) {
+    PVector desired = PVector.sub(target,location);
+    
+    float d = desired.mag();
+    desired.normalize();
+    
+    if (d < 100) {
+      float m = map(d,0,100,0,maxspeed);
+      desired.mult(m);
+    } else {
+      desired.mult(maxspeed);
+    }
+    
+    PVector steer = PVector.sub(desired, velocity);
+    
+    steer.limit(maxforce);
+    applyForce(steer);   
+    
+  }
+  
   void display() {
     float theta = velocity.heading() + PI/2;
     fill(175);
