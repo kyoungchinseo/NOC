@@ -22,8 +22,8 @@ class Circle {
     body = box2d.createBody(bd);   
     
     CircleShape cs = new CircleShape();
-    float radius = 10;
-    cs.m_radius = box2d.scalarPixelsToWorld(radius/2);
+    
+    cs.m_radius = box2d.scalarPixelsToWorld(r/2);
         
     
     // fixture
@@ -48,7 +48,7 @@ class Circle {
     stroke(0);
     strokeWeight(2);
     rectMode(CENTER); 
-    ellipse(0,0,10,10);
+    ellipse(0,0,r,r);
     popMatrix();
   }
   

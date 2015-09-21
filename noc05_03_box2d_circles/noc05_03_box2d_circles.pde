@@ -3,7 +3,7 @@ import org.jbox2d.collision.shapes.*;
 import org.jbox2d.common.*;
 import org.jbox2d.dynamics.*;
 
-ArrayList<Box> boxes;
+ArrayList<Circle> circles;
 
 Box2DProcessing box2d;
 
@@ -13,7 +13,7 @@ void setup() {
   box2d = new Box2DProcessing(this);
   box2d.createWorld();
   
-  boxes = new ArrayList<Box>();
+  circles = new ArrayList<Circle>();
   
 }
 
@@ -23,11 +23,11 @@ void draw() {
   
   box2d.step();
   
-  Box box = new Box(mouseX, mouseY, random(10,20),random(10,20));
-  boxes.add(box);
+  Circle circle = new Circle(mouseX, mouseY, random(10,30));
+  circles.add(circle);
   
-  for (Box b: boxes) {
-    b.display();
+  for (Circle c: circles) {
+    c.display();
   }  
   
 }
